@@ -1,0 +1,16 @@
+name: Suggestion / Feature request
+description: An idea for something HID Center could do or do better
+labels: ["enhancement"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        HID Center is made for the author's own needs, so there is no promise that a suggestion will be built.
+        Pull requests are welcome.
+  - type: textarea
+    id: suggestion
+    attributes:
+      label: Your suggestion
+      description: What would you like to see, and why? Write it however suits you, and include the device it is about if it is about one.
+    validations:
+      required: true

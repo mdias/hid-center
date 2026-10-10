@@ -1,0 +1,107 @@
+name: Bug report
+description: Something in HID Center does not work as it should
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        HID Center is made for the author's own needs, and support is not guaranteed.
+        A report with the details below is much more likely to be looked at.
+  - type: dropdown
+    id: device
+    attributes:
+      label: Device
+      description: Which device is the bug about?
+      options:
+        - Simagic Alpha EVO base
+        - Simagic steering wheel (on an Alpha EVO base)
+        - Simsonn pedals
+        - rFactor 2 telemetry
+        - Other / not device specific
+    validations:
+      required: true
+  - type: input
+    id: model
+    attributes:
+      label: Exact model
+      description: For example the wheel model, or the pedals model.
+      placeholder: "Alpha EVO Pro, GTC wheel"
+    validations:
+      required: true
+  - type: input
+    id: firmware
+    attributes:
+      label: Firmware version
+      description: The device's firmware version, as the vendor's software or HID Center shows it.
+      placeholder: "1.2.3"
+    validations:
+      required: true
+  - type: dropdown
+    id: vendor-software
+    attributes:
+      label: Does it also happen with the official vendor software?
+      description: Try the same thing in the vendor's own software, if it can do it. A problem that only happens in HID Center is the one this project can fix.
+      options:
+        - "No, it works with the vendor software"
+        - "Yes, it happens there too"
+        - "I could not test it with the vendor software"
+    validations:
+      required: true
+  - type: textarea
+    id: description
+    attributes:
+      label: What happens
+      description: What you did, what you expected, and what happened instead.
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      placeholder: |
+        1. Open the Wheel tab
+        2. ...
+  - type: input
+    id: version
+    attributes:
+      label: HID Center version
+      description: The release, or the commit if built from source.
+    validations:
+      required: true
+  - type: input
+    id: distro
+    attributes:
+      label: Linux distribution
+      description: The name and version, from `/etc/os-release`.
+      placeholder: "Arch Linux, Fedora 42, Ubuntu 24.04"
+    validations:
+      required: true
+  - type: input
+    id: kernel
+    attributes:
+      label: Linux kernel version
+      description: The output of `uname -r`.
+      placeholder: "6.12.1-arch1-1"
+    validations:
+      required: true
+  - type: dropdown
+    id: udev
+    attributes:
+      label: Are the udev rules installed?
+      description: The rules file that gives your user access to the devices, `70-hid-center.rules`.
+      options:
+        - "Yes"
+        - "No"
+    validations:
+      required: true
+  - type: input
+    id: qt
+    attributes:
+      label: Qt version
+      placeholder: "6.x"
+  - type: textarea
+    id: logs
+    attributes:
+      label: Logs
+      description: Anything the application printed in a terminal. Paste it here.
+      render: text
