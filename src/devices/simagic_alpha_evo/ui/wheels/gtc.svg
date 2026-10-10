@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  SPDX-FileCopyrightText: 2026 Micael Dias
+  SPDX-License-Identifier: GPL-3.0-or-later
+-->
+<!--
+  SIMAGIC GTC, seen from the driver's seat.
+
+  Traced from front-on reference photographs of the wheel, scaled to its
+  325 mm width. The centre-plate knobs are encoders and the pod knobs 7-way
+  switches on the owner's word; nothing else says which is which.
+
+  Each button's data-led is the LED slot that lights it. Which physical button
+  is which slot was found on a real GTC, by giving every button a different
+  colour and seeing where each one lit. Its data-input is the mapping byte that
+  pairs with that slot, so it is placed by the same test.
+
+  The ABS and TC windows take the two slots that are left, 8 and 9, which are
+  filled ABS first. That they
+  light the printed word rather than the roller under it is the owner's word.
+
+  The data-input of each encoder, roller and 7-way switch names the mapping byte
+  of each thing it does. Which of the parts is
+  which control, and which way is up on a roller, is a guess until each is
+  turned or pushed on a real GTC with the Wheel tab's pressed buttons showing.
+
+  Millimetres on the real wheel, origin at its centre, +y down. What the ids,
+  classes and titles mean, and how to edit this file: "Layouts are SVG files" in
+  src/devices/simagic_alpha_evo/README.md.
+-->
+<svg xmlns="http://www.w3.org/2000/svg"
+     xmlns:xlink="http://www.w3.org/1999/xlink"
+     xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+     width="340mm" height="280mm" viewBox="-170 -140 340 280"
+     class="see-through" data-wheel-id="4">
+  <title>GTC</title>
+  <style>
+    /* The editor preview's shades. The app draws with its own, from
+       WheelSchematic.cpp, and takes nothing from this block. */
+    text { font-family: sans-serif; font-weight: bold; text-anchor: middle;
+           dominant-baseline: central; stroke: none; }
+    .body { fill-rule: evenodd; clip-rule: evenodd; stroke: #80818a; stroke-width: 1;
+            stroke-linejoin: round; }
+    .grip { fill: #2a2a2e; }
+    .carbon { fill: #37383d; }
+    .plate { fill: #222327; }
+    .housing { fill: #242428; }
+    .band { fill: #43444a; }
+    .carbon, .plate, .housing, .band { stroke: #5e5f66; stroke-width: 0.3; }
+    [clip-path] { stroke: none; }
+    .seam { fill: none; stroke: #242529; stroke-width: 0.45; stroke-linecap: round; }
+    .stitch { fill: none; stroke: #cf2d2d; stroke-width: 0.55; stroke-dasharray: 1.8 1.4; }
+    .see-through .body { fill-opacity: 0.3; stroke-opacity: 0.6; }
+    .see-through .on-body { opacity: 0.6; }
+    .shift-paddle, .clutch-paddle { fill: #4b4c52; stroke: #7c7d84; stroke-width: 0.45;
+                                    stroke-linejoin: round; }
+    .optional { fill-opacity: 0.4; stroke-dasharray: 2 1; }
+    .button, .rotary-encoder, .seven-way-switch { fill: #2f3035; stroke: #45464c; stroke-width: 0.3; }
+    .button text, .rotary-encoder text { fill: #141416; font-size: 3.2px; }
+    .thumb-encoder { fill: #cc222c; stroke: #6e0e14; stroke-width: 0.3; }
+    .recess { fill: #0d0d0f; stroke: #45464c; stroke-width: 0.3; }
+    .lit-label rect { fill: #c9cacf; stroke: #7a7b82; stroke-width: 0.3; }
+    .lit-label text, .label text { fill: #141416; font-size: 5.6px; }
+  </style>
+  <defs>
+    <clipPath id="body-clip"><use xlink:href="#body"/></clipPath>
+  </defs>
+  <g id="layer-paddles" inkscape:groupmode="layer" inkscape:label="Paddles">
+    <g id="paddle_shift_left" class="shift-paddle">
+      <title>Left shift paddle (down)</title>
+      <path id="paddle_shift_left-shape" d="M -130.96 -27.7 C -130.99 -29.23 -130.5 -30.58 -129.5 -31.75 C -128.5 -32.92 -127.23 -33.48 -125.7 -33.43 L -114.13 -33.07 C -112.71 -33.02 -111.75 -32.33 -111.25 -31 L -111.2 -30.87 C -110.73 -29.62 -110.5 -28.33 -110.5 -27 L -110.5 -7 C -110.5 -5.67 -109.83 -5 -108.5 -5 L -78 -5 L -78 12 L -108.5 12 C -109.83 12 -110.5 12.67 -110.5 14 L -110.5 30.2 C -110.5 31.4 -110.92 32.43 -111.75 33.3 C -112.58 34.17 -113.6 34.6 -114.8 34.6 L -124.66 34.6 C -126.22 34.6 -127.5 34 -128.5 32.8 C -129.5 31.6 -130.01 30.22 -130.04 28.66 Z"/>
+    </g>
+    <g id="paddle_shift_right" class="shift-paddle">
+      <title>Right shift paddle (up)</title>
+      <use xlink:href="#paddle_shift_left-shape" transform="matrix(-1,0,0,1,0,0)"/>
+    </g>
+    <path id="paddle_clutch_left" class="clutch-paddle optional" d="M -117.7 49.5 C -118.03 47.83 -117.68 46.33 -116.64 44.98 L -115.85 43.95 C -114.28 41.92 -112.31 40.42 -109.93 39.47 L -103.08 36.72 C -101.23 35.97 -99.32 35.41 -97.36 35.02 L -91.56 33.89 C -90.25 33.63 -88.93 33.46 -87.6 33.39 L -72 32.5 L -72 43 L -84.66 45.6 C -86.62 46 -88.26 46.95 -89.58 48.46 L -89.7 48.6 C -91.1 50.2 -92.16 52 -92.89 54 L -95.49 61.2 C -95.83 62.13 -96.35 62.95 -97.05 63.65 C -97.75 64.35 -98.59 64.73 -99.58 64.78 L -105.98 65.11 C -107.13 65.17 -108.22 64.95 -109.25 64.45 C -110.28 63.95 -111.08 63.2 -111.63 62.19 L -115.98 54.24 C -116.79 52.75 -117.37 51.17 -117.7 49.5 Z">
+      <title>Left clutch paddle (dual-clutch module only)</title>
+    </path>
+    <use id="paddle_clutch_right" xlink:href="#paddle_clutch_left" transform="matrix(-1,0,0,1,0,0)">
+      <title>Right clutch paddle (dual-clutch module only)</title>
+    </use>
+  </g>
+  <g id="layer-body" inkscape:groupmode="layer" inkscape:label="Body">
+    <path id="body" class="body grip" d="M 0 -41 L -76.03 -31.5 C -78.68 -31.17 -80.65 -29.83 -81.94 -27.5 L -83.54 -24.62 C -84.51 -22.87 -85.89 -21.55 -87.68 -20.66 L -95.5 -16.75 C -99.83 -14.58 -104.17 -12.42 -108.5 -10.25 L -109.32 -9.84 C -113.11 -7.95 -117.12 -7 -121.35 -7 L -122.08 -7 C -125.83 -7 -128.08 -8.83 -128.85 -12.5 L -129.37 -15.01 C -129.79 -17 -129.8 -19 -129.4 -21 C -129 -23 -128.25 -24.86 -127.16 -26.58 L -124.05 -31.5 C -120.88 -36.5 -118.37 -41.81 -116.5 -47.43 L -114.84 -52.42 C -112.28 -60.14 -110.27 -68 -108.8 -76 L -107.38 -83.72 C -106.86 -86.57 -107.17 -89.33 -108.3 -92 L -108.6 -92.71 C -109.53 -94.9 -111.17 -96.25 -113.5 -96.75 C -115.83 -97.25 -118.18 -97.3 -120.53 -96.91 L -122.84 -96.53 C -124.95 -96.18 -126.83 -95.33 -128.5 -94 C -130.17 -92.67 -131.41 -91.01 -132.22 -89.04 L -134.5 -83.5 C -136.83 -77.83 -139.21 -72.19 -141.64 -66.56 L -143.5 -62.25 C -147.17 -53.75 -150.29 -45.06 -152.88 -36.17 L -153.39 -34.39 C -155.8 -26.13 -157.77 -17.77 -159.3 -9.3 C -160.83 -0.83 -161.43 7.7 -161.09 16.3 L -160.97 19.19 C -160.66 27.06 -159.58 34.83 -157.75 42.5 L -157.65 42.9 C -155.88 50.3 -153.63 57.55 -150.9 64.65 C -148.17 71.75 -144.67 78.45 -140.42 84.76 L -139.43 86.24 C -135.81 91.61 -131.55 96.42 -126.65 100.65 C -121.75 104.88 -116.4 108.43 -110.59 111.29 L -109.65 111.75 C -103.22 114.92 -96.46 117.04 -89.37 118.12 L -82 119.25 C -70 121.08 -57.93 122.09 -45.79 122.28 L 0 123 L 45.79 122.28 C 57.93 122.09 70 121.08 82 119.25 L 89.37 118.12 C 96.46 117.04 103.22 114.92 109.65 111.75 L 110.59 111.29 C 116.4 108.43 121.75 104.88 126.65 100.65 C 131.55 96.42 135.81 91.61 139.43 86.24 L 140.42 84.76 C 144.67 78.45 148.17 71.75 150.9 64.65 C 153.63 57.55 155.88 50.3 157.65 42.9 L 157.75 42.5 C 159.58 34.83 160.66 27.06 160.97 19.19 L 161.09 16.3 C 161.43 7.7 160.83 -0.83 159.3 -9.3 C 157.77 -17.77 155.8 -26.13 153.39 -34.39 L 152.88 -36.17 C 150.29 -45.06 147.17 -53.75 143.5 -62.25 L 141.64 -66.56 C 139.21 -72.19 136.83 -77.83 134.5 -83.5 L 132.22 -89.04 C 131.41 -91.01 130.17 -92.67 128.5 -94 C 126.83 -95.33 124.95 -96.18 122.84 -96.53 L 120.53 -96.91 C 118.18 -97.3 115.83 -97.25 113.5 -96.75 C 111.17 -96.25 109.53 -94.9 108.6 -92.71 L 108.3 -92 C 107.17 -89.33 106.86 -86.57 107.38 -83.72 L 108.8 -76 C 110.27 -68 112.28 -60.14 114.84 -52.42 L 116.5 -47.43 C 118.37 -41.81 120.88 -36.5 124.05 -31.5 L 127.16 -26.58 C 128.25 -24.86 129 -23 129.4 -21 C 129.8 -19 129.79 -17 129.37 -15.01 L 128.85 -12.5 C 128.08 -8.83 125.83 -7 122.08 -7 L 121.35 -7 C 117.12 -7 113.11 -7.95 109.32 -9.84 L 108.5 -10.25 C 104.17 -12.42 99.83 -14.58 95.5 -16.75 L 87.68 -20.66 C 85.89 -21.55 84.51 -22.87 83.54 -24.62 L 81.94 -27.5 C 80.65 -29.83 78.68 -31.17 76.03 -31.5 Z M -81.7 20.98 C -81.9 19.66 -82.61 19.27 -83.83 19.81 L -91 23 C -97 25.67 -102.78 28.75 -108.33 32.26 L -112.24 34.73 C -116.75 37.58 -118.87 41.66 -118.62 46.99 L -118.38 51.93 C -118.13 57.31 -117 62.5 -115 67.5 L -114.79 68.04 C -112.93 72.68 -110 76.5 -106 79.5 C -102 82.5 -97.56 84.55 -92.68 85.65 L -70.35 90.67 C -63.45 92.22 -56.5 93.5 -49.5 94.5 L -44.94 95.15 C -40.98 95.72 -37.1 95.37 -33.31 94.1 L -30.79 93.26 C -28.26 92.42 -26.68 90.71 -26.03 88.12 L -24.73 82.91 C -24.24 80.97 -24 79 -24 77 L -24 73 C -24 71.67 -24.67 70.96 -26 70.89 L -58 69.11 C -59.33 69.04 -60.4 68.47 -61.2 67.4 L -76.8 46.6 C -77.6 45.53 -78.1 44.34 -78.3 43.02 Z M 81.7 20.98 C 81.9 19.66 82.61 19.27 83.83 19.81 L 91 23 C 97 25.67 102.78 28.75 108.33 32.26 L 112.24 34.73 C 116.75 37.58 118.87 41.66 118.62 46.99 L 118.38 51.93 C 118.13 57.31 117 62.5 115 67.5 L 114.79 68.04 C 112.93 72.68 110 76.5 106 79.5 C 102 82.5 97.56 84.55 92.68 85.65 L 70.35 90.67 C 63.45 92.22 56.5 93.5 49.5 94.5 L 44.94 95.15 C 40.98 95.72 37.1 95.37 33.31 94.1 L 30.79 93.26 C 28.26 92.42 26.68 90.71 26.03 88.12 L 24.73 82.91 C 24.24 80.97 24 79 24 77 L 24 73 C 24 71.67 24.67 70.96 26 70.89 L 58 69.11 C 59.33 69.04 60.4 68.47 61.2 67.4 L 76.8 46.6 C 77.6 45.53 78.1 44.34 78.3 43.02 Z"/>
+  </g>
+  <g id="layer-surfaces" inkscape:groupmode="layer" inkscape:label="Surfaces">
+    <path id="stitch_horn_left" class="stitch on-body" d="M -131 -92 C -123 -93 -117.5 -92.58 -114.5 -90.75 C -111.5 -88.92 -110.5 -85 -111.5 -79 C -112.5 -73 -114 -66.67 -116 -60 C -118 -53.33 -120.67 -47.17 -124 -41.5 L -129 -33"/>
+    <use xlink:href="#stitch_horn_left" transform="matrix(-1,0,0,1,0,0)"/>
+    <path id="stitch_lower_left" class="stitch on-body" d="M -122 62 C -118 72 -113.5 78.83 -108.5 82.5 C -103.5 86.17 -94.17 89.5 -80.5 92.5 C -66.83 95.5 -56 97.5 -48 98.5 L -36 100"/>
+    <use xlink:href="#stitch_lower_left" transform="matrix(-1,0,0,1,0,0)"/>
+    <path id="centre_plate" class="plate" d="M 0 -42 L -76.04 -31.54 C -78.68 -31.18 -80 -29.67 -80 -27 L -80 18 C -80 19.33 -79.72 20.6 -79.15 21.81 L -66 50 L -40 69 L 0 69 L 40 69 L 66 50 L 79.15 21.81 C 79.72 20.6 80 19.33 80 18 L 80 -27 C 80 -29.67 78.68 -31.18 76.04 -31.54 Z"/>
+    <path id="top_plate" class="carbon" d="M 0 -56 L -24 -56 C -25.33 -56 -26.58 -56.32 -27.75 -56.97 L -28.75 -57.53 C -29.92 -58.18 -30.89 -59.04 -31.67 -60.12 L -33.53 -62.68 C -34.31 -63.76 -35.35 -64.42 -36.66 -64.67 L -38.05 -64.94 C -40.02 -65.31 -41.98 -65.32 -43.95 -64.96 L -46.5 -64.5 C -50.17 -63.83 -53.83 -63.14 -57.49 -62.43 L -69.69 -60.04 C -73.23 -59.35 -76.73 -58.5 -80.2 -57.5 L -83.33 -56.6 C -84.71 -56.2 -85.67 -55.33 -86.2 -54 C -86.73 -52.67 -87 -51.28 -87 -49.85 L -87 -31.83 C -87 -29.94 -86.33 -28.33 -85 -27 C -83.67 -25.67 -82.08 -25.22 -80.25 -25.65 L -73.65 -27.2 C -67.42 -28.67 -61.21 -30.23 -55.02 -31.89 L -48.41 -33.66 C -37.87 -36.49 -27.17 -38.42 -16.3 -39.45 L 0 -41 L 16.3 -39.45 C 27.17 -38.42 37.87 -36.49 48.41 -33.66 L 55.02 -31.89 C 61.21 -30.23 67.42 -28.67 73.65 -27.2 L 80.25 -25.65 C 82.08 -25.22 83.67 -25.67 85 -27 C 86.33 -28.33 87 -29.94 87 -31.83 L 87 -49.85 C 87 -51.28 86.73 -52.67 86.2 -54 C 85.67 -55.33 84.71 -56.2 83.33 -56.6 L 80.2 -57.5 C 76.73 -58.5 73.23 -59.35 69.69 -60.04 L 57.49 -62.43 C 53.83 -63.14 50.17 -63.83 46.5 -64.5 L 43.95 -64.96 C 41.98 -65.32 40.02 -65.31 38.05 -64.94 L 36.66 -64.67 C 35.35 -64.42 34.31 -63.76 33.53 -62.68 L 31.67 -60.12 C 30.89 -59.04 29.92 -58.18 28.75 -57.53 L 27.75 -56.97 C 26.58 -56.32 25.33 -56 24 -56 Z"/>
+    <path id="pod_left" class="carbon" d="M -66.99 15.36 C -63.66 15.12 -60.4 15.48 -57.21 16.44 L -56.79 16.56 C -53.6 17.52 -50.89 19.25 -48.68 21.74 L -47.99 22.52 C -45.33 25.51 -42.79 28.59 -40.37 31.78 L -28.26 47.71 C -26.09 50.57 -24.33 53.67 -23 57 L -22.86 57.36 C -21.62 60.45 -21.14 63.66 -21.42 66.98 L -21.7 70.41 C -21.9 72.8 -23 74.67 -25 76 C -27 77.33 -29.2 77.95 -31.6 77.84 L -42.63 77.34 C -47.54 77.11 -52.17 75.83 -56.5 73.5 L -57.7 72.85 C -61.23 70.95 -64.5 68.67 -67.5 66 L -68.26 65.32 C -70.75 63.11 -72.75 60.51 -74.24 57.53 L -77.76 50.47 C -79.25 47.49 -80.56 44.43 -81.68 41.29 L -83.32 36.71 C -84.44 33.57 -84.83 30.34 -84.5 27.02 L -84.5 26.98 C -84.17 23.66 -82.67 21 -80 19 C -77.33 17 -74.34 15.88 -71.01 15.64 Z"/>
+    <use xlink:href="#pod_left" transform="matrix(-1,0,0,1,0,0)"/>
+  </g>
+  <g id="layer-controls" inkscape:groupmode="layer" inkscape:label="Controls">
+    <g id="rpm_lights" class="rpm-lights">
+      <title>RPM lights</title>
+      <rect class="recess" x="-30.5" y="-51" width="61" height="5.7" rx="2.8"/>
+      <circle id="rpm_led_1" class="led" cx="-27" cy="-48.15" r="2.1" style="fill:#ff2a2a"/>
+      <circle id="rpm_led_2" class="led" cx="-20.25" cy="-48.15" r="2.1" style="fill:#ff2a2a"/>
+      <circle id="rpm_led_3" class="led" cx="-13.5" cy="-48.15" r="2.1" style="fill:#ff2a2a"/>
+      <circle id="rpm_led_4" class="led" cx="-6.75" cy="-48.15" r="2.1" style="fill:#ff2a2a"/>
+      <circle id="rpm_led_5" class="led" cx="0" cy="-48.15" r="2.1" style="fill:#ff2a2a"/>
+      <circle id="rpm_led_6" class="led" cx="6.75" cy="-48.15" r="2.1" style="fill:#ff2a2a"/>
+      <circle id="rpm_led_7" class="led" cx="13.5" cy="-48.15" r="2.1" style="fill:#ff2a2a"/>
+      <circle id="rpm_led_8" class="led" cx="20.25" cy="-48.15" r="2.1" style="fill:#ff2a2a"/>
+      <circle id="rpm_led_9" class="led" cx="27" cy="-48.15" r="2.1" style="fill:#ff2a2a"/>
+    </g>
+    <circle id="button_top_outer_left" data-led="2" data-input="6" class="button" cx="-65.4" cy="-45.3" r="7">
+      <title>Top plate, left outer button</title>
+    </circle>
+    <circle id="button_top_inner_left" data-led="3" data-input="7" class="button" cx="-47.4" cy="-52.7" r="7">
+      <title>Top plate, left inner button</title>
+    </circle>
+    <rect id="thumb_encoder_left" data-input="up:32 down:33" class="thumb-encoder" x="-99" y="-50.5" width="10" height="19">
+      <title>Left thumb encoder</title>
+    </rect>
+    <circle id="encoder_left" data-input="clockwise:37 anticlockwise:36" class="rotary-encoder" cx="-50.5" cy="-8.2" r="11.5">
+      <title>Left encoder</title>
+    </circle>
+    <circle id="button_pod_upper_left" data-led="1" data-input="5" class="button" cx="-70.6" cy="28.8" r="7">
+      <title>Left pod, upper button</title>
+    </circle>
+    <circle id="switch_7way_left" data-input="up:21 down:19 left:16 right:22 push:17 clockwise:30 anticlockwise:31" class="seven-way-switch" cx="-48" cy="41" r="8.25">
+      <title>Left 7-way switch</title>
+    </circle>
+    <circle id="button_pod_lower_left" data-led="0" data-input="4" class="button" cx="-37.9" cy="64.7" r="7">
+      <title>Left pod, lower button</title>
+    </circle>
+    <rect id="encoder_abs" data-input="up:10 down:11" class="thumb-encoder" x="-82.5" y="56" width="19" height="10" transform="rotate(50,-73,61)">
+      <title>ABS encoder</title>
+    </rect>
+    <g id="label_abs" data-led="8" class="lit-label">
+      <title>ABS light</title>
+      <rect id="label_abs-box" x="-68" y="48" width="14" height="8" rx="2.8" transform="rotate(48,-61,52)"/>
+      <text x="-61" y="52" transform="rotate(48,-61,52)">ABS</text>
+    </g>
+    <use id="button_top_outer_right" data-led="4" data-input="3" xlink:href="#button_top_outer_left" transform="matrix(-1,0,0,1,0,0)">
+      <title>Top plate, right outer button</title>
+    </use>
+    <use id="button_top_inner_right" data-led="7" data-input="2" xlink:href="#button_top_inner_left" transform="matrix(-1,0,0,1,0,0)">
+      <title>Top plate, right inner button</title>
+    </use>
+    <use id="thumb_encoder_right" data-input="up:34 down:35" xlink:href="#thumb_encoder_left" transform="matrix(-1,0,0,1,0,0)">
+      <title>Right thumb encoder</title>
+    </use>
+    <use id="encoder_right" data-input="clockwise:38 anticlockwise:39" xlink:href="#encoder_left" transform="matrix(-1,0,0,1,0,0)">
+      <title>Right encoder</title>
+    </use>
+    <use id="button_pod_upper_right" data-led="5" data-input="1" xlink:href="#button_pod_upper_left" transform="matrix(-1,0,0,1,0,0)">
+      <title>Right pod, upper button</title>
+    </use>
+    <use id="switch_7way_right" data-input="up:28 down:27 left:24 right:29 push:25 clockwise:14 anticlockwise:15" xlink:href="#switch_7way_left" transform="matrix(-1,0,0,1,0,0)">
+      <title>Right 7-way switch</title>
+    </use>
+    <use id="button_pod_lower_right" data-led="6" data-input="0" xlink:href="#button_pod_lower_left" transform="matrix(-1,0,0,1,0,0)">
+      <title>Right pod, lower button</title>
+    </use>
+    <use id="encoder_tc" data-input="up:9 down:8" xlink:href="#encoder_abs" transform="matrix(-1,0,0,1,0,0)">
+      <title>TC encoder</title>
+    </use>
+    <g id="label_tc" data-led="9" class="lit-label">
+      <title>TC light</title>
+      <use xlink:href="#label_abs-box" transform="matrix(-1,0,0,1,0,0)"/>
+      <text x="61" y="52" transform="rotate(-48,61,52)">TC</text>
+    </g>
+  </g>
+</svg>

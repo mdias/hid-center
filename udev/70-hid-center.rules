@@ -1,0 +1,37 @@
+# SPDX-FileCopyrightText: 2026 Micael Dias
+# SPDX-License-Identifier: GPL-3.0-or-later
+
+# Grant the logged-in desktop user access to the HID devices hid-center configures.
+#
+# Without this, /dev/hidraw* is root-only and hid-center can neither read settings
+# from a device nor write them back. Enumeration still works — report
+# descriptors are read from sysfs, which is world-readable — so a device may
+# appear in the sidebar and still refuse to open.
+#
+#   sudo cp udev/70-hid-center.rules /etc/udev/rules.d/
+#   sudo udevadm control --reload-rules
+#   # then unplug and replug the device
+#
+# TAG+="uaccess" hands access to whoever is logged in at the seat, which is what
+# you want on a desktop; no group membership needed.
+#
+# This list mirrors the VID/PIDs claimed by the device modules under
+# src/devices/. Keep the two in step when adding a device.
+#
+# Two rules per device, not one. The hidraw rule is for the report protocols —
+# feature reports and input reports — and the usb rule is for endpoints the HID
+# stack cannot reach, which are addressed through /dev/bus/usb instead. A device
+# whose protocol lives entirely on reports needs only the first; the Alpha Evo's
+# LED ring wants an interrupt OUT on an interface the kernel bound no HID driver
+# to, so it needs both.
+#
+# The usb rule matches the *device* node rather than its interfaces: usbfs has
+# one node per device, and claiming an interface is an ioctl on it.
+
+# SIMAGIC Alpha Evo
+KERNEL=="hidraw*", ATTRS{idVendor}=="3670", ATTRS{idProduct}=="0500", MODE="0666", TAG+="uaccess"
+SUBSYSTEM=="usb", ENV{DEVTYPE}=="usb_device", ATTR{idVendor}=="3670", ATTR{idProduct}=="0500", MODE="0666", TAG+="uaccess"
+
+# SIMSONN Plus X
+KERNEL=="hidraw*", ATTRS{idVendor}=="ddfd", ATTRS{idProduct}=="6011", MODE="0666", TAG+="uaccess"
+SUBSYSTEM=="usb", ENV{DEVTYPE}=="usb_device", ATTR{idVendor}=="ddfd", ATTR{idProduct}=="6011", MODE="0666", TAG+="uaccess"

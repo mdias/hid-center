@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  SPDX-FileCopyrightText: 2026 Micael Dias
+  SPDX-License-Identifier: GPL-3.0-or-later
+-->
+<!--
+  SIMAGIC GT Neo, seen from the driver's seat.
+
+  Traced from reference images of the wheel, scaled to its 300 mm width.
+
+  Millimetres on the real wheel, origin at its centre, +y down. What the ids,
+  classes and titles mean, and how to edit this file: "Layouts are SVG files" in
+  src/devices/simagic_alpha_evo/README.md.
+-->
+<svg xmlns="http://www.w3.org/2000/svg"
+     xmlns:xlink="http://www.w3.org/1999/xlink"
+     xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+     width="320mm" height="180mm" viewBox="-160 -90 320 180"
+     data-wheel-id="6">
+  <title>GT Neo</title>
+  <style>
+    /* The editor preview's shades. The app draws with its own, from
+       WheelSchematic.cpp, and takes nothing from this block. */
+    text { font-family: sans-serif; font-weight: bold; text-anchor: middle;
+           dominant-baseline: central; stroke: none; }
+    .body { fill-rule: evenodd; clip-rule: evenodd; stroke: #80818a; stroke-width: 1;
+            stroke-linejoin: round; }
+    .grip { fill: #2a2a2e; }
+    .carbon { fill: #37383d; }
+    .plate { fill: #222327; }
+    .housing { fill: #242428; }
+    .band { fill: #43444a; }
+    .carbon, .plate, .housing, .band { stroke: #5e5f66; stroke-width: 0.3; }
+    [clip-path] { stroke: none; }
+    .seam { fill: none; stroke: #242529; stroke-width: 0.45; stroke-linecap: round; }
+    .stitch { fill: none; stroke: #cf2d2d; stroke-width: 0.55; stroke-dasharray: 1.8 1.4; }
+    .see-through .body { fill-opacity: 0.3; stroke-opacity: 0.6; }
+    .see-through .on-body { opacity: 0.6; }
+    .shift-paddle, .clutch-paddle { fill: #4b4c52; stroke: #7c7d84; stroke-width: 0.45;
+                                    stroke-linejoin: round; }
+    .optional { fill-opacity: 0.4; stroke-dasharray: 2 1; }
+    .button, .rotary-encoder, .seven-way-switch { fill: #2f3035; stroke: #45464c; stroke-width: 0.3; }
+    .button text, .rotary-encoder text { fill: #141416; font-size: 3.2px; }
+    .thumb-encoder { fill: #cc222c; stroke: #6e0e14; stroke-width: 0.3; }
+    .recess { fill: #0d0d0f; stroke: #45464c; stroke-width: 0.3; }
+    .lit-label rect { fill: #c9cacf; stroke: #7a7b82; stroke-width: 0.3; }
+    .lit-label text, .label text { fill: #141416; font-size: 5.6px; }
+  </style>
+  <defs>
+    <clipPath id="body-clip"><use xlink:href="#body"/></clipPath>
+  </defs>
+  <g id="layer-paddles" inkscape:groupmode="layer" inkscape:label="Paddles">
+    <g id="paddle_shift_left" class="shift-paddle">
+      <title>Left shift paddle (down)</title>
+      <path id="paddle_shift_left-shape" d="M -105 -30 C -105 -32 -104.26 -33.67 -102.77 -35.01 L -102.23 -35.49 C -100.74 -36.83 -99 -37.54 -97 -37.61 L -88 -37.93 C -86.67 -37.98 -85.35 -37.86 -84.05 -37.57 L -68 -34 L -68 -12 L -103 -12 C -104.33 -12 -105 -12.67 -105 -14 Z"/>
+    </g>
+    <g id="paddle_shift_right" class="shift-paddle">
+      <title>Right shift paddle (up)</title>
+      <use xlink:href="#paddle_shift_left-shape" transform="matrix(-1,0,0,1,0,0)"/>
+    </g>
+    <path id="paddle_clutch_left" class="clutch-paddle" d="M -105.76 29.99 C -105.92 28 -105.26 26.32 -103.79 24.97 L -102.21 23.53 C -100.74 22.18 -99 21.41 -97.01 21.22 L -84 20 L -68 20 L -68 52 L -101 52 C -103 52 -104.08 51 -104.24 49.01 Z">
+      <title>Left clutch paddle</title>
+    </path>
+    <use id="paddle_clutch_right" xlink:href="#paddle_clutch_left" transform="matrix(-1,0,0,1,0,0)">
+      <title>Right clutch paddle</title>
+    </use>
+  </g>
+  <g id="layer-body" inkscape:groupmode="layer" inkscape:label="Body">
+    <path id="body" class="body carbon" d="M 0 -56.2 L -56 -56.2 C -57 -56.2 -57.96 -56.4 -58.88 -56.79 L -99.91 -74.19 C -101.97 -75.06 -104 -76 -106 -77 C -108 -78 -110 -78 -112 -77 L -112.5 -76.75 C -114.83 -75.58 -116.84 -74.01 -118.53 -72.02 L -125.36 -63.99 C -126.65 -62.46 -128.23 -61.33 -130.08 -60.58 L -131.46 -60.03 C -134.15 -58.94 -136.58 -57.43 -138.75 -55.5 C -140.92 -53.57 -142.8 -51.39 -144.39 -48.96 L -144.5 -48.8 C -146.17 -46.27 -147.32 -43.52 -147.97 -40.56 L -148.25 -39.3 C -149.08 -35.5 -149.5 -31.65 -149.5 -27.76 L -149.5 -13.06 C -149.5 -4.82 -149.37 3.42 -149.1 11.65 L -149 14.85 C -148.8 20.95 -148.15 27 -147.05 33 L -147.02 33.17 C -145.94 39.06 -144.3 44.78 -142.1 50.35 L -141.55 51.74 C -139.72 56.38 -137.17 60.58 -133.9 64.35 L -133.54 64.76 C -130.51 68.25 -127.07 71.27 -123.2 73.8 L -121.66 74.81 C -118.82 76.67 -115.75 78 -112.45 78.8 C -109.15 79.6 -105.8 79.91 -102.41 79.73 L -100.9 79.65 C -96.5 79.42 -92.24 78.52 -88.11 76.97 L -84.39 75.57 C -82.13 74.72 -80.47 73.22 -79.4 71.05 L -79.13 70.49 C -78.24 68.7 -76.84 67.51 -74.93 66.92 L -67.9 64.75 C -61.3 62.72 -54.57 61.32 -47.7 60.57 L -45.65 60.35 C -37.42 59.45 -29.16 58.93 -20.88 58.78 L 0 58.4 L 20.88 58.78 C 29.16 58.93 37.42 59.45 45.65 60.35 L 47.7 60.57 C 54.57 61.32 61.3 62.72 67.9 64.75 L 74.93 66.92 C 76.84 67.51 78.24 68.7 79.13 70.49 L 79.4 71.05 C 80.47 73.22 82.13 74.72 84.39 75.57 L 88.11 76.97 C 92.24 78.52 96.5 79.42 100.9 79.65 L 102.41 79.73 C 105.8 79.91 109.15 79.6 112.45 78.8 C 115.75 78 118.82 76.67 121.66 74.81 L 123.2 73.8 C 127.07 71.27 130.51 68.25 133.54 64.76 L 133.9 64.35 C 137.17 60.58 139.72 56.38 141.55 51.74 L 142.1 50.35 C 144.3 44.78 145.94 39.06 147.02 33.17 L 147.05 33 C 148.15 27 148.8 20.95 149 14.85 L 149.1 11.65 C 149.37 3.42 149.5 -4.82 149.5 -13.06 L 149.5 -27.76 C 149.5 -31.65 149.08 -35.5 148.25 -39.3 L 147.97 -40.56 C 147.32 -43.52 146.17 -46.27 144.5 -48.8 L 144.39 -48.96 C 142.8 -51.39 140.92 -53.57 138.75 -55.5 C 136.58 -57.43 134.15 -58.94 131.46 -60.03 L 130.08 -60.58 C 128.23 -61.33 126.65 -62.46 125.36 -63.99 L 118.53 -72.02 C 116.84 -74.01 114.83 -75.58 112.5 -76.75 L 112 -77 C 110 -78 108 -78 106 -77 C 104 -76 101.97 -75.06 99.91 -74.19 L 58.88 -56.79 C 57.96 -56.4 57 -56.2 56 -56.2 Z M -120.17 -46 C -120.06 -48.67 -118.95 -50.82 -116.85 -52.47 L -116.5 -52.75 C -114.17 -54.58 -111.53 -55.28 -108.6 -54.85 L -100.95 -53.73 C -97.65 -53.24 -95.05 -51.63 -93.15 -48.89 L -89.85 -44.11 C -87.95 -41.37 -86.9 -38.34 -86.69 -35.01 L -86.26 -28.23 C -86.09 -25.41 -87 -23 -89 -21 L -89.17 -20.83 C -91.06 -18.94 -93.33 -18 -96 -18 L -111.28 -18 C -114.43 -18 -116.83 -19.33 -118.5 -22 C -120.17 -24.67 -120.93 -27.57 -120.8 -30.71 Z M 120.17 -46 C 120.06 -48.67 118.95 -50.82 116.85 -52.47 L 116.5 -52.75 C 114.17 -54.58 111.53 -55.28 108.6 -54.85 L 100.95 -53.73 C 97.65 -53.24 95.05 -51.63 93.15 -48.89 L 89.85 -44.11 C 87.95 -41.37 86.9 -38.34 86.69 -35.01 L 86.26 -28.23 C 86.09 -25.41 87 -23 89 -21 L 89.17 -20.83 C 91.06 -18.94 93.33 -18 96 -18 L 111.28 -18 C 114.43 -18 116.83 -19.33 118.5 -22 C 120.17 -24.67 120.93 -27.57 120.8 -30.71 Z M -119 26 C -119 22 -117.93 18.31 -115.78 14.94 L -115.22 14.06 C -113.07 10.69 -110.01 8.86 -106.02 8.57 L -103.98 8.43 C -99.99 8.14 -96.15 8.77 -92.46 10.31 L -89.69 11.46 C -87.23 12.49 -85.84 14.32 -85.53 16.97 L -84.47 26.03 C -84.16 28.68 -84.15 31.33 -84.44 33.98 L -85.34 42.04 C -85.78 46.01 -87.6 49.2 -90.8 51.6 L -93.2 53.4 C -96.4 55.8 -100 57 -104 57 C -108 57 -111.2 55.4 -113.6 52.2 L -114.5 51 C -117.5 47 -119 42.5 -119 37.5 Z M 119 26 C 119 22 117.93 18.31 115.78 14.94 L 115.22 14.06 C 113.07 10.69 110.01 8.86 106.02 8.57 L 103.98 8.43 C 99.99 8.14 96.15 8.77 92.46 10.31 L 89.69 11.46 C 87.23 12.49 85.84 14.32 85.53 16.97 L 84.47 26.03 C 84.16 28.68 84.15 31.33 84.44 33.98 L 85.34 42.04 C 85.78 46.01 87.6 49.2 90.8 51.6 L 93.2 53.4 C 96.4 55.8 100 57 104 57 C 108 57 111.2 55.4 113.6 52.2 L 114.5 51 C 117.5 47 119 42.5 119 37.5 Z"/>
+  </g>
+  <g id="layer-surfaces" inkscape:groupmode="layer" inkscape:label="Surfaces">
+    <path id="band" class="band on-body" clip-path="url(#body-clip)" d="M 0 8 L -44 8 C -45.33 8 -46.52 8.42 -47.56 9.26 L -96.44 48.74 C -97.48 49.58 -97.48 50.42 -96.44 51.25 L -89.56 56.75 C -88.52 57.58 -87.48 57.59 -86.43 56.76 L -41.57 21.24 C -40.52 20.41 -39.33 20 -38 20 L 0 20 L 38 20 C 39.33 20 40.52 20.41 41.57 21.24 L 86.43 56.76 C 87.48 57.59 88.52 57.58 89.56 56.75 L 96.44 51.25 C 97.48 50.42 97.48 49.58 96.44 48.74 L 47.56 9.26 C 46.52 8.42 45.33 8 44 8 Z"/>
+    <path id="panel_seam_left" class="seam on-body" d="M -58 -44 L -58 -4 L -46 8"/>
+    <use xlink:href="#panel_seam_left" transform="matrix(-1,0,0,1,0,0)"/>
+    <path id="grip_left" class="grip on-body" clip-path="url(#body-clip)" d="M -127.3 -61.7 L -118 -53 L -104 -36 L -93 -18 L -90 8 L -97 30 L -88.5 47 L -77.8 67.8 L -70 100 L -170 100 L -170 -70 Z"/>
+    <use xlink:href="#grip_left" transform="matrix(-1,0,0,1,0,0)"/>
+    <path id="thumb_housing_left" class="housing" d="M -92 -28 C -92 -30 -91 -31 -89 -31 L -72 -31 C -68.67 -31 -66 -29.67 -64 -27 C -62 -24.33 -61.62 -21.45 -62.86 -18.36 L -65.14 -12.64 C -66.38 -9.55 -68.65 -7.8 -71.96 -7.4 L -89.02 -5.36 C -91.01 -5.12 -92 -6 -92 -8 Z"/>
+    <use xlink:href="#thumb_housing_left" transform="matrix(-1,0,0,1,0,0)"/>
+  </g>
+  <g id="layer-controls" inkscape:groupmode="layer" inkscape:label="Controls">
+    <g id="rpm_lights" class="rpm-lights">
+      <title>RPM lights</title>
+      <rect class="recess" x="-56" y="-55" width="112" height="10.5" rx="2.5"/>
+      <rect id="rpm_led_1" class="led" x="-45.85" y="-51.05" width="4.2" height="2.6" rx="1.3" style="fill:#3a78ff"/>
+      <rect id="rpm_led_2" class="led" x="-39.6" y="-51.05" width="4.2" height="2.6" rx="1.3" style="fill:#3a78ff"/>
+      <rect id="rpm_led_3" class="led" x="-33.35" y="-51.05" width="4.2" height="2.6" rx="1.3" style="fill:#3a78ff"/>
+      <rect id="rpm_led_4" class="led" x="-27.1" y="-51.05" width="4.2" height="2.6" rx="1.3" style="fill:#3a78ff"/>
+      <rect id="rpm_led_5" class="led" x="-20.85" y="-51.05" width="4.2" height="2.6" rx="1.3" style="fill:#3a78ff"/>
+      <rect id="rpm_led_6" class="led" x="-14.6" y="-51.05" width="4.2" height="2.6" rx="1.3" style="fill:#2ee07a"/>
+      <rect id="rpm_led_7" class="led" x="-8.35" y="-51.05" width="4.2" height="2.6" rx="1.3" style="fill:#2ee07a"/>
+      <rect id="rpm_led_8" class="led" x="-2.1" y="-51.05" width="4.2" height="2.6" rx="1.3" style="fill:#2ee07a"/>
+      <rect id="rpm_led_9" class="led" x="4.15" y="-51.05" width="4.2" height="2.6" rx="1.3" style="fill:#2ee07a"/>
+      <rect id="rpm_led_10" class="led" x="10.4" y="-51.05" width="4.2" height="2.6" rx="1.3" style="fill:#2ee07a"/>
+      <rect id="rpm_led_11" class="led" x="16.65" y="-51.05" width="4.2" height="2.6" rx="1.3" style="fill:#ff3040"/>
+      <rect id="rpm_led_12" class="led" x="22.9" y="-51.05" width="4.2" height="2.6" rx="1.3" style="fill:#ff3040"/>
+      <rect id="rpm_led_13" class="led" x="29.15" y="-51.05" width="4.2" height="2.6" rx="1.3" style="fill:#ff3040"/>
+      <rect id="rpm_led_14" class="led" x="35.4" y="-51.05" width="4.2" height="2.6" rx="1.3" style="fill:#ff3040"/>
+      <rect id="rpm_led_15" class="led" x="41.65" y="-51.05" width="4.2" height="2.6" rx="1.3" style="fill:#ff3040"/>
+    </g>
+    <g id="button_arm_top_left" class="button" style="fill:#eef0f4">
+      <title>Left arm, top button</title>
+      <circle id="button_arm_top_left-shape" cx="-107.5" cy="-67.4" r="8.25"/>
+    </g>
+    <g id="button_arm_middle_left" class="button" style="fill:#4a6cff">
+      <title>Left arm, middle button</title>
+      <circle id="button_arm_middle_left-shape" cx="-88.5" cy="-59.2" r="8.25"/>
+    </g>
+    <g id="button_arm_bottom_left" class="button" style="fill:#b36bff">
+      <title>Left arm, bottom button</title>
+      <circle id="button_arm_bottom_left-shape" cx="-77" cy="-41.5" r="8.25"/>
+    </g>
+    <g id="button_side_left" class="button glyph-arrow-left" style="fill:#ffe23a">
+      <title>Left side button</title>
+      <circle id="button_side_left-shape" cx="-76.2" cy="0.2" r="7.75"/>
+      <text x="-76.2" y="0.2">◀</text>
+    </g>
+    <g id="button_lower_left" class="button" style="fill:#35e05c">
+      <title>Left lower button</title>
+      <circle id="button_lower_left-shape" cx="-71.2" cy="26" r="8.25"/>
+      <text x="-71.2" y="26">EXIT</text>
+    </g>
+    <rect id="thumb_encoder_left" class="thumb-encoder" x="-88.5" y="-28.75" width="9" height="21.5">
+      <title>Left thumb encoder</title>
+    </rect>
+    <circle id="switch_7way_left" class="seven-way-switch" cx="-54.7" cy="-2.3" r="7.5">
+      <title>Left 7-way switch</title>
+    </circle>
+    <g id="encoder_upper_left" class="rotary-encoder" style="fill:#ff7a1a">
+      <title>Upper-left encoder</title>
+      <circle id="encoder_upper_left-shape" cx="-26.7" cy="-18" r="14"/>
+    </g>
+    <g id="encoder_lower_left" class="rotary-encoder" style="fill:#e6ecff">
+      <title>Lower-left encoder</title>
+      <circle id="encoder_lower_left-shape" cx="-23.4" cy="35.6" r="13.5"/>
+    </g>
+    <g id="button_arm_top_right" class="button" style="fill:#ffa21f">
+      <title>Right arm, top button</title>
+      <use xlink:href="#button_arm_top_left-shape" transform="matrix(-1,0,0,1,0,0)"/>
+      <text x="107.5" y="-67.4">PIT</text>
+    </g>
+    <g id="button_arm_middle_right" class="button" style="fill:#35e05c">
+      <title>Right arm, middle button</title>
+      <use xlink:href="#button_arm_middle_left-shape" transform="matrix(-1,0,0,1,0,0)"/>
+      <text x="88.5" y="-59.2">DRS</text>
+    </g>
+    <g id="button_arm_bottom_right" class="button" style="fill:#26b8ff">
+      <title>Right arm, bottom button</title>
+      <use xlink:href="#button_arm_bottom_left-shape" transform="matrix(-1,0,0,1,0,0)"/>
+      <text x="77" y="-41.5">KERS</text>
+    </g>
+    <g id="button_side_right" class="button glyph-arrow-right" style="fill:#ffe23a">
+      <title>Right side button</title>
+      <use xlink:href="#button_side_left-shape" transform="matrix(-1,0,0,1,0,0)"/>
+      <text x="76.2" y="0.2">▶</text>
+    </g>
+    <g id="button_lower_right" class="button glyph-power" style="fill:#ff3b30">
+      <title>Right lower button</title>
+      <use xlink:href="#button_lower_left-shape" transform="matrix(-1,0,0,1,0,0)"/>
+      <text x="71.2" y="26">⏻</text>
+    </g>
+    <use id="thumb_encoder_right" xlink:href="#thumb_encoder_left" transform="matrix(-1,0,0,1,0,0)">
+      <title>Right thumb encoder</title>
+    </use>
+    <use id="switch_7way_right" xlink:href="#switch_7way_left" transform="matrix(-1,0,0,1,0,0)">
+      <title>Right 7-way switch</title>
+    </use>
+    <g id="encoder_upper_right" class="rotary-encoder" style="fill:#3d7bff">
+      <title>Upper-right encoder</title>
+      <use xlink:href="#encoder_upper_left-shape" transform="matrix(-1,0,0,1,0,0)"/>
+    </g>
+    <g id="encoder_lower_right" class="rotary-encoder" style="fill:#b54dff">
+      <title>Lower-right encoder</title>
+      <use xlink:href="#encoder_lower_left-shape" transform="matrix(-1,0,0,1,0,0)"/>
+    </g>
+  </g>
+</svg>

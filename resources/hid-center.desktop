@@ -1,0 +1,13 @@
+# SPDX-FileCopyrightText: 2026 Micael Dias
+# SPDX-License-Identifier: GPL-3.0-or-later
+
+[Desktop Entry]
+Type=Application
+Name=HID Center
+GenericName=HID Device Configurator
+Comment=Configure USB HID devices: sim racing wheels, pedals and more
+Exec=hid-center
+Icon=hid-center
+Terminal=false
+Categories=Settings;HardwareSettings;Utility;
+Keywords=HID;sim racing;wheel;pedals;force feedback;simagic;

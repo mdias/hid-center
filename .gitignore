@@ -1,0 +1,77 @@
+# --- Build trees ------------------------------------------------------------
+# The project is built out-of-source; `build/` is the documented location, the
+# rest cover the conventions other people and IDEs use.
+/build/
+/build-*/
+/out/
+cmake-build-*/
+
+# --- CMake ------------------------------------------------------------------
+# Only ever present if someone configures in-source by mistake, but cheap to
+# guard against — an in-source configure otherwise dumps hundreds of files.
+CMakeCache.txt
+CMakeFiles/
+CMakeUserPresets.json
+cmake_install.cmake
+CTestTestfile.cmake
+Testing/
+install_manifest.txt
+compile_commands.json
+_deps/
+
+# --- Qt generated sources ---------------------------------------------------
+# AUTOMOC/AUTOUIC/AUTORCC output. It lands in the build tree, so these only
+# matter for stray in-source generation.
+moc_*.cpp
+moc_*.h
+moc_predefs.h
+qrc_*.cpp
+ui_*.h
+*.moc
+mocs_compilation.cpp
+
+# Compiled translations; the .ts sources stay tracked.
+*.qm
+
+# Qt Creator per-user project settings.
+*.pro.user*
+*.qbs.user*
+CMakeLists.txt.user*
+
+# --- Build output -----------------------------------------------------------
+*.o
+*.so
+*.so.*
+*.a
+*.dll
+*.lib
+*.exp
+*.pdb
+*.ilk
+
+# --- Editors and tooling ----------------------------------------------------
+.vscode/
+.idea/
+.cache/
+.clangd/
+.ccls-cache/
+*.swp
+*~
+
+# --- Debugging leftovers ----------------------------------------------------
+# Descriptor dumps and captures produced while reverse-engineering a protocol
+# (`--dump-hid`, usbhid-dump, saved analyzer logs) are scratch, not sources.
+# Anchored: an unanchored `core` would also match the src/core/ directory.
+/core
+core.[0-9]*
+vgcore.*
+*.log
+*.hidcap
+
+# --- OS junk ----------------------------------------------------------------
+.DS_Store
+Thumbs.db
+
+# --- Vendor-derived notes ---------------------------------------------------
+# Reverse-engineering notes based on vendor software stay local.
+/docs/tmp/

@@ -1,0 +1,5 @@
+{
+    "name": "rFactor 2 / Le Mans Ultimate",
+    "version": "0.1.0",
+    "description": "TelemInfoV01 telemetry over UDP, as the sim's own plugins receive it"
+}
