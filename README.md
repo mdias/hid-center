@@ -10,6 +10,8 @@ It also picks up telemetry from running sims.
 | Device | VID:PID |
 | --- | --- |
 | SIMAGIC Alpha Evo | `3670:0500` |
+| SIMAGIC Alpha Evo | `3670:0501` |
+| SIMAGIC Alpha Evo | `3670:0502` |
 | SIMSONN Plus X | `ddfd:6011` |
 
 ## Building
