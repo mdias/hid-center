@@ -5,6 +5,10 @@ settings on a direct-drive wheelbase, response curves on pedals, and so on.
 
 It also picks up telemetry from running sims.
 
+> **Note:** a telemetry plugin for Le Mans Ultimate (LMU) is coming soon.
+
+![HID Center showing the FFB settings of a SIMAGIC Alpha Evo](docs/screenshot.png)
+
 ## Supported devices
 
 | Device | VID:PID |
